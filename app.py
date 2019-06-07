@@ -39,7 +39,7 @@ def predict_price():
     else:
         belongs_to_col = 1
         features.append(belongs_to_col)
-        df_col = pd.read_csv('data/collections.csv')
+        df_col = pd.read_csv('data_api/collections.csv')
         for i in df_col.index:
             if df_col.loc[i,'name'] == collection:
                 coll_vote = df_col.loc[i,'vote_count']
@@ -54,7 +54,7 @@ def predict_price():
             features.append(0)
     
     # add genres numeric values
-    df_genres = pd.read_csv('data/genres.csv')
+    df_genres = pd.read_csv('data_api/genres.csv')
     g_p = 0
     g_v = 0
     g_r = 0
@@ -79,7 +79,7 @@ def predict_price():
             features.append(0)
 
     # add production companies numeric values
-    df_prod = pd.read_csv('data/prod_companies.csv')
+    df_prod = pd.read_csv('data_api/prod_companies.csv')
     p_p = 0
     p_v = 0
     p_r = 0
@@ -101,7 +101,7 @@ def predict_price():
             features.append(0)
 
     # add actors numeric values
-    df_act = pd.read_csv('data/actors.csv')
+    df_act = pd.read_csv('data_api/actors.csv')
     a_p = 0
     a_v = 0
     a_r = 0

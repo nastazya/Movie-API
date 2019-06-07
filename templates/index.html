@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Site Properties -->
+    <title>Fixed Menu Example - Semantic</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/site.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/container.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/image.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/menu.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/divider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/list.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/segment.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/dropdown.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/components/icon.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/semantic.min.css') }}">
+
+    <script src="{{ url_for('static', filename='dist/components/form.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/components/transition.js') }}"></script>
+
+    <style type="text/css">
+        body {
+        background-image: url("background-copy.jpg");
+        background-color: rgb(250, 249, 249);
+        
+        }
+        .ui.menu .item img.logo {
+        margin-right: 1.5em;
+        }
+        .main.container {
+        margin-top: 4em;
+        
+        }
+        .wireframe {
+        margin-top: 2em;
+        }
+        .ui.footer.segment {
+        margin: 5em 0em 0em;
+        padding: 1em 0em;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="ui fixed inverted menu">
+    <div class="ui container">
+        <a href="/" class="header item">
+            <img class="logo" src="logo-1.png">
+            Movie Revenue Prediction
+        </a>
+        <a href="/" class="item">Home</a>
+    </div>
+</div>
+
+<div class="ui main text container">
+
+    <h1 class="ui header">Movie Revenue Prediction</h1>
+
+    <form class="ui form" action="/predict_price" method="post">
+        <div class="field">
+            <label>Company name</label>
+            <select class="ui selection dropdown" name="prod_company" id="prod_company_id">
+                <script>
+                    var i;
+                    var options = ["", "1492 Pictures", "21 Laps Entertainment", "Alcon Entertainment", "Amblin Entertainment", "Anonymous Content", "Apatow Productions", "BBC Films", "Bad Robot", "Big Screen Productions", "Blumhouse Productions", "Canal+", "Castle Rock Entertainment", "Columbia Pictures", "Columbia Pictures Corporation", "DC Comics", "Davis Entertainment", "Dentsu", "Di Bonaventura Pictures", "Dimension Films", "Donners' Company", "Double Feature Films", "DreamWorks Animation", "DreamWorks SKG", "Dune Entertainment", "Dune Entertainment III", "Emmett/Furla Films", "Endgame Entertainment", "Epsilon Motion Pictures", "Escape Artists", "EuropaCorp", "Film4", "FilmNation Entertainment", "Focus Features", "Fox 2000 Pictures", "Fox Searchlight Pictures", "Franchise Pictures", "GK Films", "Happy Madison Productions", "IM Global", "Imagenation Abu Dhabi FZ", "Imagine Entertainment", "Ingenious Film Partners", "Ingenious Media", "Intermedia Films", "Jerry Bruckheimer Films", "Kennedy/Marshall Company, The", "LStar Capital", "Lakeshore Entertainment", "Legendary Pictures", "Lions Gate Films", "Lionsgate", "MTV Films", "Mad Chance", "Malpaso Productions", "Mandate Pictures", "Marc Platt Productions", "Marvel Enterprises", "Marvel Studios", "Metro-Goldwyn-Mayer (MGM)", "Millennium Films", "Miramax Films", "Morgan Creek Productions", "NPV Entertainment", "New Line Cinema", "New Regency Pictures", "Nickelodeon Movies", "Nu Image Films", "Original Film", "Overbrook Entertainment", "Paramount Pictures", "Participant Media", "Pixar Animation Studios", "Plan B Entertainment", "Platinum Dunes", "RatPac-Dune Entertainment", "Regency Enterprises", "Relativity Media", "Revolution Studios", "Revolution Sun Studios", "Saturn Films", "Scott Free Productions", "Scott Rudin Productions", "Screen Gems", "Silver Pictures", "Spyglass Entertainment", "Studio Babelsberg", "StudioCanal", "Summit Entertainment", "TSG Entertainment", "The Weinstein Company", "Touchstone Pictures", "TriStar Pictures", "Twentieth Century Fox Film Corporation", "Universal Pictures", "Vertigo Entertainment", "Village Roadshow Pictures", "Walden Media", "Walt Disney Pictures", "Warner Bros.", "Working Title Films"]
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("prod_company_id").appendChild(z);
+                    }
+                </script>
+            </select>
+        </div>
+        <div class="field">
+            <label>Collection</label>
+            <select class="ui selection dropdown" name="collection" id="collection_id">
+                <script>
+                    var i;
+                    var options = ["", "... Has Fallen Collection", "101 Dalmatians (Live-Action) Collection", "12 Rounds Collection", "30 Days of Night Collection", "300 Collection", "A Haunted House Collection", "A Nightmare on Elm Street Collection", "AVP Collection", "Agent Cody Banks Collection", "Alex Cross Collection", "Alice in Wonderland Collection", "Almighty Collection", "Alone in the Dark Collection", "Alpha and Omega Collection", "Alvin and the Chipmunks Collection", "American Pie Collection", "American Psycho Collection", "Anaconda Collection", "Analyze Collection", "Anchorman Collection", "Annabelle Collection", "Another Gay Movie Collection", "Ant-Man Collection", "Atlantis Collection", "Atlas Shrugged Collection", "Austin Powers Collection", "Avatar Collection", "Bad Boys Collection", "Bad Santa Collection", "Barbershop Collection", "Basic Instinct Collection", "Before... Collection", "Behind Enemy Lines Collection", "Best Exotic Marigold Hotel Collection", "Beverly Hills Chihuahua Collection", "Big Momma's House Collection", "Blade Collection", "Blair Witch Collection", "BloodRayne Collection", "Blue Crush Collection", "Bridget Jones Collection", "Bring It On Collection", "Captain America Collection", "Cars Collection", "Cats & Dogs Collection", "Center Stage Collection", "Charlie's Angels Collection", "Cheaper by the Dozen Collection", "Child's Play Collection", "Chili Palmer Collection", "Cinderella Story Collection", "Clash of the Titans Collection", "Clerks Collection", "Clint Eastwood's Iwo Jima Collection", "Cloudy with a Chance of Meatballs Collection", "Constantine Collection", "Crank Collection", "Crocodile Dundee Collection", "Crouching Tiger, Hidden Dragon Collection", "Curious George Collection", "Daddy Day Camp Collection", "Daddy's Home Collection", "Darko Collection", "Deadpool Collection", "Death Race Collection", "Despicable Me Collection", "Deuce Bigalow Collection", "Diary of a Wimpy Kid Collection", "Die Hard Collection", "Dirty Dancing Collection", "Disneys Große Pause", "Divergent Collection", "Dolphin Tale Collection", "Dr. Dolittle Collection", "Dracula 2000 Collection", "Dragon Ball Z (Movie) Collection", "Dumb and Dumber Collection", "Dungeons & Dragons Collection", "Elektra Luxx Collection", "Eye of the Dolphin Collection", "Fantastic Beasts Collection", "Fantastic Four Collection", "Fifty Shades Collection", "Final Destination Collection", "Final Fantasy Collection", "Finding Nemo Collection", "Friday Collection", "Friday the 13th Collection", "Fright Night (Reboot) Collection", "Frozen Collection", "G.I. Joe (Live-Action) Collection", "Garfield Collection", "Ghost Rider Collection", "Ghostbusters Collection", "Goal! Collection", "God's Not Dead Collection", "Grindhouse Collection", "Grown Ups Collection", "Guardians of the Galaxy Collection", "Halloween (Rob Zombie Series) Collection", "Halloween Collection", "Happily N'Ever After Collection", "Harold & Kumar Collection", "Harry Potter Collection", "Hatchet Collection", "Heart of Gold Collection", "Hellboy Collection", "Herbie Collection", "Highlander Collection", "Hitman Collection", "Hollow Man Collection", "Honey Collection", "Hoodwinked! Collection", "Horrible Bosses Collection", "Hostel Collection", "Hot Tub Time Machine Collection", "Hotel Transylvania Collection", "House of 1000 Corpses Collection", "House of the Dead Collection", "How to Train Your Dragon Collection", "I Spit on Your Grave Collection", "Ice Age Collection", "Independence Day Collection", "Indiana Jones Collection", "Insidious Collection", "Into the Blue Collection", "Iron Man Collection", "Jack Reacher Collection", "Jackass Collection", "James Bond Collection", "Jarhead Collection", "Jeepers Creepers Collection", "Joe Dirt Collection", "John Wick Collection", "Journey Collection", "Joy Ride Collection", "Jump Street Collection", "Jurassic Park Collection", "Justice League (Animated) Collection", "Kick-Ass Collection", "Kill Bill Collection", "Kingsman Collection", "Kung Fu Panda Collection", "Legally Blonde Collection", "Lilo & Stitch Collection", "Living Dead Collection", "Machete Collection", "Mad Max Collection", "Madagascar Collection", "Magic Mike Collection", "Mall Cop Collection", "Mamma Mia! Collection", "Man of Steel Collection", "Marley & Me Collection", "Max (Collection)", "Mean Girls Collection", "Mechanic Collection", "Meet the Parents Collection", "Men In Black Collection", "Mexico Trilogy", "Mirrors Collection", "Miss Congeniality Collection", "Mission: Impossible Collection", "Monsters, Inc. Collection", "Mr. Bean Collection", "My Big Fat Greek Wedding Collection", "My Bloody Valentine Collection", "Nanny McPhee Collection", "National Lampoon's Vacation Collection", "National Lampoon’s Van Wilder Collection", "National Treasure Collection", "Neighbors Collection", "Never Back Down Collection", "Night at the Museum Collection", "Nim's Island Collection", "Now You See Me Collection", "Ocean's Collection", "Open Season Collection", "Open Water Collection", "Ouija Collection", "Pacific Rim Collection", "Paranormal Activity Collection", "Percy Jackson Collection", "Peter Pan Collection", "Piranha 3D Collection", "Pirates of the Caribbean Collection", "Pitch Perfect Collection", "Planes Collection", "Planet of the Apes (Reboot) Collection", "Predator Collection", "Prometheus Collection", "Pulse Collection", "Quarantine Collection", "RED Collection", "Rambo Collection", "Resident Evil Collection", "Ride Along Collection", "Rio Collection", "Road Trip Collection", "Robert Langdon Collection", "RoboCop Collection", "Rocky Collection", "Rush Hour Collection", "S.W.A.T. Collection", "Save The Last Dance Collection", "Saw Collection", "Scary Movie Collection", "Scooby-Doo Collection", "Scream Collection", "Sex and the City Collection", "Shaft Collection", "Shanghai Noon Collection", "Sherlock Holmes Collection", "Shrek Collection", "Silent Hill Collection", "Sin City Collection", "Sinister Collection", "Smokin' Aces Collection", "Space Chimps Collection", "Space Dogs", "Spider-Man Collection", "SpongeBob Collection", "Spy Kids Collection", "Stake Land Collection", "Star Trek: Alternate Reality Collection", "Star Trek: The Next Generation Collection", "Star Wars Collection", "Stargate SG-1 Collection", "Step Up Collection", "Stomp the Yard Collection", "Street Fighter", "Street Kings Collection", "Stuart Little Collection", "Super Size Me Collection", "Super Troopers Collection", "Superman Collection", "Surf's Up Collection", "TRON Collection", "Taken Collection", "Tangled Collection", "Ted Collection", "Teenage Mutant Ninja Turtles (Remake) Collection", "Tekken Collection", "Texas Chainsaw (Reboot) Collection", "Texas Chainsaw Massacre Collection", "The Amazing Spider-Man Collection", "The Amityville Horror Collection", "The Are We Collection", "The Art of War Collection", "The Avengers Collection", "The Best Man Collection", "The Boogeyman Collection", "The Boondock Saints Collection", "The Bourne Collection", "The Butterfly Effect Collection", "The Cabin Fever Collection", "The Cell Collection", "The Chronicles of Narnia Collection", "The Chronicles of Riddick Collection", "The Collector Collection", "The Conjuring Collection", "The Croods Collection", "The Dark Knight Collection", "The Dukes Of Hazzard Collection", "The Emperor's New Groove Collection", "The Exorcist Collection", "The Expendables Collection", "The Eye Collection", "The Fast and the Furious Collection", "The Flintstones (Live-Action) Collection", "The Grudge Collection", "The Hangover Collection", "The Hannibal Lecter Anthology", "The Hills Have Eyes (Reboot) Collection", "The Hobbit Collection", "The Hunger Games Collection", "The Huntsman Collection", "The Incredibles Collection", "The Jack Ryan Collection", "The Jungle Book Collection", "The Last Exorcism Collection", "The Lego Movie Collection", "The Lord of the Rings Collection", "The Man with the Iron Fists Collection", "The Marine Collection", "The Matrix Collection", "The Maze Runner Collection", "The Messengers Collection", "The Mummy Collection", "The Muppet Collection", "The Nutty Professor Collection", "The Princess Diaries Collection", "The Purge Collection", "The Raid Collection", "The Ring Collection", "The Santa Clause Collection", "The Scorpion King Collection", "The Secret Life of Pets Collection", "The Sisterhood of the Traveling Pants Collection", "The Skulls Collection", "The Smurfs (Theatrical) Collection", "The Terminator Collection", "The Thing Collection", "The Three Mothers Collection", "The Transporter Collection", "The Twilight Collection", "The Vampire Chronicles", "The Whole Nine/Ten Yards Collection", "The Wolverine Collection", "The Woman in Black Collection", "The X-Files Collection", "Think Like a Man Collection", "Thor Collection", "Tomb Raider Collection", "Tooth Fairy Collection", "Toy Story Collection", "Transformers Collection", "Underworld Collection", "Undisputed Collection", "Universal Soldier Collection", "Urban Legend", "Vacancy Collection", "Vampires Suck Collection", "Van Helsing Collection", "Waiting Collection", "Walking Tall Collection", "Wall Street Collection", "Wallace & Gromit Collection", "Wanted - Collection", "We're the Millers Collection", "When a Stranger Calls Collection", "White Noise Collection", "Without a Paddle Collection", "World War Z Collection", "Wreck-It Ralph Collection", "Wrong Turn Collection", "X-Men Collection", "Zoolander Collection", "Zorro Collection", "xXx Collection"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("collection_id").appendChild(z);
+                    }
+                </script>
+            </select>
+        </div>
+        <div class="field">
+            <label>Planned Year of release</label>
+            <input type="text" name="year">
+        </div>
+        <div class="field">
+            <label>Planned Budget</label>
+            <input type="text" name="budget">
+        </div>
+        <div class="field">
+            <label>Choose movie genres</label>
+            <select class="ui selection dropdown" name="genre_1" id="genre_1_id">
+                <script>
+                    var i;
+                    var options = ["", "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Foreign", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("genre_1_id").appendChild(z);
+                    }
+                </script>
+            </select>
+            <select class="ui selection dropdown" name="genre_2" id="genre_2_id">
+                <script>
+                    var i;
+                    var options = ["", "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Foreign", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("genre_2_id").appendChild(z);
+                    }
+                </script>
+            </select>
+            <select class="ui selection dropdown" name="genre_3" id="genre_3_id">
+                <script>
+                    var i;
+                    var options = ["", "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Foreign", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("genre_3_id").appendChild(z);
+                    }
+                </script>
+            </select>
+        </div>
+        <div class="field">
+            <label>Choose actors if present in the dropdown options</label>
+            <select class="ui selection dropdown" name="actor_1" id="actor_1_id">
+                <script>
+                    var i;
+                    var options = ["", "Aaron Eckhart", "Adam Sandler", "Alan Tudyk", "Alec Baldwin", "Amy Adams", "Angelina Jolie", "Anne Hathaway", "Anthony Mackie", "Ben Affleck", "Ben Kingsley", "Ben Stiller", "Bill Hader", "Bill Murray", "Bill Nighy", "Brad Pitt", "Bradley Cooper", "Brendan Gleeson", "Brian Cox", "Bruce McGill", "Bruce Willis", "Cameron Diaz", "Cate Blanchett", "Channing Tatum", "Charlize Theron", "Chris Evans", "Christian Bale", "Ciarán Hinds", "Colin Farrell", "David Koechner", "Dennis Quaid", "Drew Barrymore", "Dwayne Johnson", "Ed Harris", "Elizabeth Banks", "Ewan McGregor", "George Clooney", "Gerard Butler", "Hugh Jackman", "Idris Elba", "J.K. Simmons", "Jack Black", "James Franco", "James Marsden", "Jason Bateman", "Jason Statham", "Jennifer Aniston", "Jeremy Renner", "John C. Reilly", "John Goodman", "John Leguizamo", "Johnny Depp", "Jonah Hill", "Joseph Gordon-Levitt", "Josh Brolin", "Judy Greer", "Julia Roberts", "Julianne Moore", "Justin Long", "Keith David", "Ken Jeong", "Kevin Hart", "Kristen Stewart", "Kristen Wiig", "Liam Neeson", "Luis Guzmán", "Maggie Gyllenhaal", "Mark Ruffalo", "Mark Wahlberg", "Matt Damon", "Matthew McConaughey", "Meryl Streep", "Michael Caine", "Michael Peña", "Michael Shannon", "Michael Sheen", "Morgan Freeman", "Naomi Watts", "Nicolas Cage", "Octavia Spencer", "Owen Wilson", "Paul Bettany", "Paul Giamatti", "Paul Rudd", "Peter Sarsgaard", "Richard Jenkins", "Robert De Niro", "Robert Downey Jr.", "Ron Perlman", "Ryan Reynolds", "Sam Rockwell", "Samuel L. Jackson", "Scarlett Johansson", "Seth Rogen", "Sigourney Weaver", "Stan Lee", "Stanley Tucci", "Stephen Root", "Steve Buscemi", "Steve Carell", "Susan Sarandon", "Terrence Howard", "Tom Hanks", "Tom Wilkinson", "Vince Vaughn", "Viola Davis", "Will Ferrell", "Willem Dafoe", "Woody Harrelson"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("actor_1_id").appendChild(z);
+                    }
+                </script>
+            </select>
+            <select class="ui selection dropdown" name="actor_2" id="actor_2_id">
+                <script>
+                    var i;
+                    var options = ["", "Aaron Eckhart", "Adam Sandler", "Alan Tudyk", "Alec Baldwin", "Amy Adams", "Angelina Jolie", "Anne Hathaway", "Anthony Mackie", "Ben Affleck", "Ben Kingsley", "Ben Stiller", "Bill Hader", "Bill Murray", "Bill Nighy", "Brad Pitt", "Bradley Cooper", "Brendan Gleeson", "Brian Cox", "Bruce McGill", "Bruce Willis", "Cameron Diaz", "Cate Blanchett", "Channing Tatum", "Charlize Theron", "Chris Evans", "Christian Bale", "Ciarán Hinds", "Colin Farrell", "David Koechner", "Dennis Quaid", "Drew Barrymore", "Dwayne Johnson", "Ed Harris", "Elizabeth Banks", "Ewan McGregor", "George Clooney", "Gerard Butler", "Hugh Jackman", "Idris Elba", "J.K. Simmons", "Jack Black", "James Franco", "James Marsden", "Jason Bateman", "Jason Statham", "Jennifer Aniston", "Jeremy Renner", "John C. Reilly", "John Goodman", "John Leguizamo", "Johnny Depp", "Jonah Hill", "Joseph Gordon-Levitt", "Josh Brolin", "Judy Greer", "Julia Roberts", "Julianne Moore", "Justin Long", "Keith David", "Ken Jeong", "Kevin Hart", "Kristen Stewart", "Kristen Wiig", "Liam Neeson", "Luis Guzmán", "Maggie Gyllenhaal", "Mark Ruffalo", "Mark Wahlberg", "Matt Damon", "Matthew McConaughey", "Meryl Streep", "Michael Caine", "Michael Peña", "Michael Shannon", "Michael Sheen", "Morgan Freeman", "Naomi Watts", "Nicolas Cage", "Octavia Spencer", "Owen Wilson", "Paul Bettany", "Paul Giamatti", "Paul Rudd", "Peter Sarsgaard", "Richard Jenkins", "Robert De Niro", "Robert Downey Jr.", "Ron Perlman", "Ryan Reynolds", "Sam Rockwell", "Samuel L. Jackson", "Scarlett Johansson", "Seth Rogen", "Sigourney Weaver", "Stan Lee", "Stanley Tucci", "Stephen Root", "Steve Buscemi", "Steve Carell", "Susan Sarandon", "Terrence Howard", "Tom Hanks", "Tom Wilkinson", "Vince Vaughn", "Viola Davis", "Will Ferrell", "Willem Dafoe", "Woody Harrelson"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("actor_2_id").appendChild(z);
+                    }
+                </script>
+            </select>
+            <select class="ui selection dropdown" name="actor_3" id="actor_3_id">
+                <script>
+                    var i;
+                    var options = ["", "Aaron Eckhart", "Adam Sandler", "Alan Tudyk", "Alec Baldwin", "Amy Adams", "Angelina Jolie", "Anne Hathaway", "Anthony Mackie", "Ben Affleck", "Ben Kingsley", "Ben Stiller", "Bill Hader", "Bill Murray", "Bill Nighy", "Brad Pitt", "Bradley Cooper", "Brendan Gleeson", "Brian Cox", "Bruce McGill", "Bruce Willis", "Cameron Diaz", "Cate Blanchett", "Channing Tatum", "Charlize Theron", "Chris Evans", "Christian Bale", "Ciarán Hinds", "Colin Farrell", "David Koechner", "Dennis Quaid", "Drew Barrymore", "Dwayne Johnson", "Ed Harris", "Elizabeth Banks", "Ewan McGregor", "George Clooney", "Gerard Butler", "Hugh Jackman", "Idris Elba", "J.K. Simmons", "Jack Black", "James Franco", "James Marsden", "Jason Bateman", "Jason Statham", "Jennifer Aniston", "Jeremy Renner", "John C. Reilly", "John Goodman", "John Leguizamo", "Johnny Depp", "Jonah Hill", "Joseph Gordon-Levitt", "Josh Brolin", "Judy Greer", "Julia Roberts", "Julianne Moore", "Justin Long", "Keith David", "Ken Jeong", "Kevin Hart", "Kristen Stewart", "Kristen Wiig", "Liam Neeson", "Luis Guzmán", "Maggie Gyllenhaal", "Mark Ruffalo", "Mark Wahlberg", "Matt Damon", "Matthew McConaughey", "Meryl Streep", "Michael Caine", "Michael Peña", "Michael Shannon", "Michael Sheen", "Morgan Freeman", "Naomi Watts", "Nicolas Cage", "Octavia Spencer", "Owen Wilson", "Paul Bettany", "Paul Giamatti", "Paul Rudd", "Peter Sarsgaard", "Richard Jenkins", "Robert De Niro", "Robert Downey Jr.", "Ron Perlman", "Ryan Reynolds", "Sam Rockwell", "Samuel L. Jackson", "Scarlett Johansson", "Seth Rogen", "Sigourney Weaver", "Stan Lee", "Stanley Tucci", "Stephen Root", "Steve Buscemi", "Steve Carell", "Susan Sarandon", "Terrence Howard", "Tom Hanks", "Tom Wilkinson", "Vince Vaughn", "Viola Davis", "Will Ferrell", "Willem Dafoe", "Woody Harrelson"];
+                    for (i = 0; i < options.length; i++) { 
+                      var z = document.createElement("option");
+                      z.setAttribute("value", options[i]);
+                      var t = document.createTextNode(options[i]);
+                      z.appendChild(t);
+                      document.getElementById("actor_3_id").appendChild(z);
+                    }
+                </script>
+            </select>
+        </div>
+        <button class="ui button" type="submit">Submit</button>
+    </form>
+
+</div>
+
+<div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui horizontal inverted small divided link list">
+            <a class="item" href="#">CEDB 1260 - BIG DATA ANALYTICS</a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
